@@ -70,7 +70,7 @@ public class ImageSetChooserPanel extends javax.swing.JPanel {
     add(behaviorsFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
 
     image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-    add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 60, 60));
+    add(image, new org.                                                             netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 60, 60));
   }// </editor-fold>//GEN-END:initComponents
 
 
