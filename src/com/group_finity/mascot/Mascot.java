@@ -121,8 +121,9 @@ public class Mascot {
 		// Register the mouse handler注册鼠标事件处理程序，以便在鼠标按下或释放时执行相应的操作。
 		getWindow().asJWindow().addMouseListener(new MouseAdapter() {
 			@Override
-			public void mousePressed(final MouseEvent e) {
-				Mascot.this.mousePressed(e);
+			public void mousePressed(final MouseEvent e)//按下方法,当一个方法被声明为 final 时，它不能被子类重写（覆盖）。
+			{
+				Mascot.this.mousePressed(e);//在 mousePressed 方法内部调用了 Mascot 类的 mousePressed 方法。Mascot.this 表示当前实例的引用，用于明确指定调用的是当前实例的方法。
 			}
 
 			@Override
