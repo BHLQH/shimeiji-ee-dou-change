@@ -1,4 +1,6 @@
-package com.group_finity.mascot;
+
+
+ package com.group_finity.mascot;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;

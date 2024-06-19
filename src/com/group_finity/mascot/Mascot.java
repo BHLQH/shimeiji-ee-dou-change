@@ -47,68 +47,78 @@ public class Mascot {
 
 	private static AtomicInteger lastId = new AtomicInteger();
 
-	private final int id;
+	private final int id;//每个桌宠都有一个唯一的标识符。
 	
-	private String imageSet = "";
+	private String imageSet = "";//指定桌宠使用的图像集
 
 	/**
 	 * A window that displays the mascot.
+	 * 展示桌宠的窗口。
 	 */
 	private final TranslucentWindow window = NativeFactory.getInstance().newTransparentWindow();
 
 	/**
 	 * Managers are managing the mascot.
+	 * 管理者正在管理的桌宠。
 	 */
 	private Manager manager = null;
 
 	/**
 	 * Mascot ground coordinates.
 	 * Or feet, for example, when part of the hand is hanging.
+	 * 吉祥物地面坐标 或脚，例如，当手的一部分悬空时。
 	 */
-	private Point anchor = new Point(0, 0);
+	private Point anchor = new Point(0, 0);//桌宠的位置坐标。
 
 	/**
 	 * Image to display.
+	 * 当前显示的图像
 	 */
 	private MascotImage image = null;
 
 	/**
 	 * Whether looking right or left.
 	 * The original image is treated as left, true means picture must be inverted.
+	 * 表示桌宠是否朝右看
+	 * 	 * 原始图像被视为左图，true 表示图像必须反转。
 	 */
 	private boolean lookRight = false;
 
 	/**
 	 * Object representing the long-term behavior.
+	 * 表示桌宠的长期行为。
 	 */
 	private Behavior behavior = null;
 
 	/**
 	 * Increases with each tick of the timer.
+	 * 计时器的时间。
 	 */
 	private int time = 0;
 
 	/**
 	 * Whether the animation is running.
+	 * 表示动画是否正在运行。
 	 */
 	private boolean animating = true;
 
-	private MascotEnvironment environment = new MascotEnvironment(this);
-        
-        private String sound = null;
+	private MascotEnvironment environment = new MascotEnvironment(this);//这行代码创建了一个名为environment的私有属性（成员变量）
+	//this关键字表示当前对象（即Mascot类的实例）。因此，这行代码在创建一个MascotEnvironment对象，并将当前Mascot实例作为参数传递给它。
+        private String sound = null;//桌宠的声音。
     
-    protected DebugWindow debugWindow = null;
+    protected DebugWindow debugWindow = null;//创建调试窗口
 
-	public Mascot( final String imageSet ) {
-		this.id = lastId.incrementAndGet();
-		this.imageSet = imageSet;
+	public Mascot( final String imageSet ) //一个构造方法（constructor），用于创建Mascot类的实例,构造方法的名称与类名相同
+	{//final String imageSet表示传入的图像集名称。
+		this.id = lastId.incrementAndGet();//为当前实例设置唯一的id。
+		this.imageSet = imageSet;//设置图像集名称。
 
-		log.log(Level.INFO, "Created a mascot ({0})", this);
+		log.log(Level.INFO, "Created a mascot ({0})", this);//记录日志，表示已创建一个桌宠
 
 		// Always show on top
-		getWindow().asJWindow().setAlwaysOnTop(true);
+		getWindow().asJWindow().setAlwaysOnTop(true);//确保桌宠窗口始终在顶部显示。
 
-		// Register the mouse handler
+		// Register the mouse handler注册鼠标事件处理程序，以便在鼠标按下或释放时执行相应的操作。
 		getWindow().asJWindow().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(final MouseEvent e) {
@@ -312,7 +322,8 @@ public class Mascot {
                 popup.show(getWindow().asJWindow(), x, y);
 	}
 
-	void tick() {
+	void tick() //处理计时器的逻辑
+	{
 		if (isAnimating()) {
 			if (getBehavior() != null) {
 
@@ -339,7 +350,7 @@ public class Mascot {
 		}
 	}
 
-    public void apply( )
+    public void apply( )//应用桌宠的行为。
     {
         if (isAnimating())
         {
