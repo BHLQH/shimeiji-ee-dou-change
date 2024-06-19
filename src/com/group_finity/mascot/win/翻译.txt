@@ -1,0 +1,18 @@
+NativeFactoryImpl.java: 可能是用于创建和管理原生组件的工厂类。
+WindowsEnvironment.java: 可能包含与Windows操作系统环境交互的方法。
+WindowsInteractiveWindowForm.form: IntelliJ IDEA用于GUI设计的表单文件。
+WindowsInteractiveWindowForm.java: 上述表单的Java实现，可能用于处理窗口交互。
+WindowsNativeImage.java: 可能用于处理Windows原生图像操作。
+WindowsTranslucentWindow.java: 可能用于创建和管理透明或半透明窗口。
+
+jna文件夹:
+
+包含与Java Native Access (JNA) 库交互的类，JNA允许Java代码调用本地代码。例如：
+Gdi32.java, User32.java: 封装了调用Windows GDI和User32 API的方法。
+BITMAP.java, RECT.java, SIZE.java 等: 定义了与Windows API交互时使用的结构体。
+.idea文件夹:
+
+包含IntelliJ IDEA项目配置文件，如：
+misc.xml: 包含项目的一般设置。
+modules.xml: 定义了项目模块和依赖关系。
+workspace.xml: 包含IDE工作空间的个人设置。
